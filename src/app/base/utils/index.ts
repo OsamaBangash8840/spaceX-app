@@ -1,4 +1,3 @@
-// Import your data types
 import { Launches } from "../../types/launches";
 import { Capsule } from "../../types/capsule";
 import { Cores } from "../../types/core";
