@@ -2,6 +2,7 @@ import { Dragons } from "@/app/types/dargons";
 import React from "react";
 import Card from "../../common/Card";
 import { Button, MImage, Typography } from "../../common";
+import Link from "next/link";
 
 const DragonList = ({data}:{data:Dragons[]}):React.ReactElement => {
     return(
@@ -12,7 +13,7 @@ const DragonList = ({data}:{data:Dragons[]}):React.ReactElement => {
             gridCols={2}
             renderItem={(item)=>{
                 return(
-                    <div className="">
+                    <Link href={`dragons/${item.id}`} className="">
                        <MImage
                        src={item.flickr_images[2]}
                         alt={item.name}
@@ -29,7 +30,7 @@ const DragonList = ({data}:{data:Dragons[]}):React.ReactElement => {
                         <div className="grid grid-cols-2 ">
                         <Button href={item.wikipedia} className="mt-3">Readmore</Button>
                         </div>
-                    </div>
+                    </Link>
                 )
             }}
             />

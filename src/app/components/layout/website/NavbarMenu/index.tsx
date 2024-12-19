@@ -9,10 +9,10 @@ export const NavMenu = (): React.ReactElement => {
 
     return (
         <nav className="relative">
-            {/* Hamburger Icon for Small Screens */}
+            {/* Hamburger Icon for Small and Medium Screens */}
             <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="block md:hidden text-white focus:outline-none"
+                className="block md:block lg:hidden text-white focus:outline-none"
             >
                 <svg
                     className="w-6 h-6"
@@ -43,8 +43,29 @@ export const NavMenu = (): React.ReactElement => {
             <ul
                 className={`${
                     isMenuOpen ? "flex" : "hidden"
-                } flex-col md:flex md:flex-row justify-center items-center gap-4 md:gap-6 mt-2 md:mt-0  md:bg-transparent p-4 md:p-0 rounded-md md:rounded-none absolute md:relative top-full md:top-0 left-0 w-full md:w-auto`}
+                } fixed inset-0 bg-black bg-opacity-90 flex-col justify-center items-center gap-6 z-50 p-4 lg:flex lg:relative lg:bg-transparent lg:inset-auto lg:flex-row`}
             >
+                {/* Close Button */}
+                <button
+                    onClick={() => setIsMenuOpen(false)}
+                    className="absolute top-6 right-6 text-white focus:outline-none lg:hidden"
+                >
+                    <svg
+                        className="w-8 h-8"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M6 18L18 6M6 6l12 12"
+                        />
+                    </svg>
+                </button>
+
                 {menu.map((item, index) => (
                     <li key={index} className="text-white">
                         <Link href={item.route}>

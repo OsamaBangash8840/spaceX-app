@@ -2,6 +2,7 @@ import { LaunchPads } from "@/app/types/launchpads";
 import React from "react";
 import Card from "../../common/Card";
 import { MImage, Typography } from "../../common";
+import Link from "next/link";
 
 const LaunchPadsList = ({data}:{data:LaunchPads[]}):React.ReactElement => {
     return(
@@ -11,7 +12,7 @@ const LaunchPadsList = ({data}:{data:LaunchPads[]}):React.ReactElement => {
         gridCols={3}
         renderItem={(item)=> {
             return(
-                <div>
+                <Link href={`/launchpads/${item.id}`}>
                     <MImage
                     src={item.images.large[0]}
                     alt={item.name}
@@ -25,7 +26,7 @@ const LaunchPadsList = ({data}:{data:LaunchPads[]}):React.ReactElement => {
                            `${item.details.slice(0,180)}...`:
                              item.details
                     }</Typography>
-                </div>
+                </Link>
             )
         }}
         />

@@ -2,6 +2,7 @@ import { Rockets } from "@/app/types/rockets";
 import React from "react";
 import Card from "../../common/Card";
 import { Button, MImage, Typography } from "../../common";
+import Link from "next/link";
 
 const RocketList = ({data}:{data:Rockets[]}):React.ReactElement => {
     return(
@@ -11,7 +12,7 @@ const RocketList = ({data}:{data:Rockets[]}):React.ReactElement => {
         gridCols={3}
         renderItem={(item)=> {
             return(
-                <div>
+                <Link href={`rockets/${item.id}`}>
                     <MImage
                     src={item.flickr_images[0]}
                     alt={item.name}
@@ -28,7 +29,7 @@ const RocketList = ({data}:{data:Rockets[]}):React.ReactElement => {
                      <div className="grid grid-cols-2 ">
                            <Button href={item.wikipedia} className="mt-3">Readmore</Button>
                      </div>
-                </div>
+                </Link>
             )
         }}
         />

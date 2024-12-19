@@ -19,7 +19,7 @@ export const Navbar = (): React.ReactElement => {
                     />
                 </Link>
             </div>
-            <div className="flex justify-end mr-[60px]">
+            <div className="flex justify-end mr-[60px] lg:mr-[0]">
                 <NavMenu />
             </div>
         </div>
